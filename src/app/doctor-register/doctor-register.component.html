@@ -1,0 +1,82 @@
+<section class="vh-100">
+    <div class="container-fluid h-custom mt-5">
+ <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        
+        <div class="col-md-9 col-lg-6 col-xl-5">
+
+            <!-- Name input -->
+            <div class="form-outline mb-4">
+                <input type="text"  [(ngModel)]="doctor.name" name="name" class="form-control form-control-lg"
+                  placeholder="Enter your name" required #patient_name="ngModel"/>
+                <label class="form-label" >your name</label>
+              </div>
+      
+              <!-- categeory -->
+              <div class="form-outline mb-4">
+                <input type="text"  [(ngModel)]="doctor.categeory" name="categeory" required class="form-control form-control-lg"
+                  placeholder="Enter your categeory" #contact="ngModel"/>
+                <label class="form-label" >categeory</label>
+              </div>
+      
+              <!-- Mobile input -->
+              <div class="form-outline mb-4">
+                  <input type="text"  [(ngModel)]="doctor.mobile_number" name="mobile_number" required class="form-control form-control-lg"
+                    placeholder="Enter your mobile number" #contact="ngModel"/>
+                  <label class="form-label" >your Mobile Number</label>
+                </div>
+      
+              <!-- timings input -->
+              <div class="form-outline mb-4">
+                <input type="text"  [(ngModel)]="doctor.timings" name="timings" class="form-control form-control-lg"
+                  placeholder="Enter availabilty Timings" required #email_id="ngModel"/>
+                <label class="form-label">Timings</label>
+              </div>
+        </div>
+
+
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+
+            <!-- experience -->
+            <div class="form-outline mb-4">
+                <input type="text"  [(ngModel)]="doctor.experience" name="experience" class="form-control form-control-lg"
+                  placeholder="Enter experience in years" required #email_id="ngModel"/>
+                <label class="form-label">Experience</label>
+              </div>
+
+              <!-- fee -->
+            <div class="form-outline mb-4">
+                <input type="text"  [(ngModel)]="doctor.fee" name="timings" class="form-control form-control-lg"
+                  placeholder="Enter availabilty Timings" required #email_id="ngModel"/>
+                <label class="form-label">Fee</label>
+              </div>
+  
+            <!-- Password input -->
+            <div class="form-outline mb-3">
+              <input type="password"  [(ngModel)]="doctor.password" name="password" class="form-control form-control-lg"
+                placeholder="Enter password" required #password="ngModel"/>
+              <label class="form-label">Password</label>
+            </div>
+            
+            <!-- submit-->
+            <div class="text-center text-lg-start mt-3 pt-2">
+              <button type="submit" class="btn btn-primary btn-lg"
+              style="padding-left: 2.5rem; padding-right: 2.5rem;">SignUp</button>
+            </div>
+          
+  
+        </div>
+    </div>
+</form>
+</div>
+
+    <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+      <!-- Copyright -->
+      <div class="text-white mb-3 mb-md-0">
+        Copyright © 2020. All rights reserved.
+      </div>
+  
+    </div>
+   
+  </section>
+
