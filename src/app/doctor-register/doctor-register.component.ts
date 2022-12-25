@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Doctor } from '../doctor';
 import { DoctorserviceService } from '../doctorservice.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-doctor-register',
@@ -14,14 +15,20 @@ export class DoctorRegisterComponent implements OnInit {
 
   doctor: Doctor;
 
-  constructor(private doctorservice: DoctorserviceService) {
+  constructor(
+    private router: Router, 
+        private doctorservice: DoctorserviceService) {
     this.doctor = new Doctor();
   }
 
   onSubmit() {
-    this.doctorservice.save(this.doctor).subscribe(result => {
-      console.log(result);
-    });
+    this.doctorservice.save(this.doctor).subscribe(result => this.gotoUserList());
+    this.doctorservice.save(this.doctor).subscribe(result => alert("Registered Successfully"));
+  }
+
+  gotoUserList() {
+    this.router.navigate(['/doctor-login']);
+  }
 
 
-}}
+}
