@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { PatientserviceService } from '../patientservice.service';
 import { Patient } from '../patient';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-patient-register',
@@ -10,20 +12,29 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class PatientRegisterComponent implements OnInit {
 
+
   ngOnInit(): void {}
   
 
   patient: Patient;
+  document: Document;
+  form:FormGroup;
+  model:any;
 
-  constructor(
+  constructor(@Inject (DOCUMENT) document:Document,
     private router: Router, 
-        private patientservice: PatientserviceService) {
+        private patientservice: PatientserviceService,private formBuilder:FormBuilder) {
     this.patient = new Patient();
+    this.document=document; this.model=Patient; this.form = this.formBuilder.group({
+      patient_name:['',Validators.required],
+      email_id:['', Validators.required],
+      contact:['',Validators.required],
+      password:['', Validators.required],
+})
   }
 
   onSubmit() {
     this.patientservice.save(this.patient).subscribe(result => this.gotoUserList());
-    this.patientservice.save(this.patient).subscribe(result => alert("Registered Successfully!"));
   }
 
   gotoUserList() {

@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end" >
+  
+  
+  <a class="navbar-brand" href="#">
+    <img src="https://img.icons8.com/external-anggara-outline-color-anggara-putra/200/external-avatar-interface-anggara-outline-color-anggara-putra-2.png" 
+    alt="Avatar Logo" style="width:40px;background-color: aliceblue;" class="rounded-pill"> 
+  </a>
+
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link active" routerLink="/doctor-login">Log out <img src="https://img.icons8.com/color-glass/96/logout-rounded.png"
+        style="height: 30px;width: 30px;" alt=""></a>
+    </li>
+  </ul>
+
+</nav>
+
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Mobile Number</th>
+          <th scope="col">Email</th>
+          <th scope="col">Date:Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let appointment of list">
+          <td>{{ appointment.name}}</td>
+          <td>{{ appointment.contact }}</td>
+          <td>{{ appointment.email }}</td>
+          <td>{{ appointment.date_time }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

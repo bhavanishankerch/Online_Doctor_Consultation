@@ -5,11 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PatientLoginComponent } from './patient-login/patient-login.component';
 import { PatientRegisterComponent } from './patient-register/patient-register.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PatientserviceService } from './patientservice.service';
 import { DoctorLoginComponent } from './doctor-login/doctor-login.component';
 import { DoctorRegisterComponent } from './doctor-register/doctor-register.component';
+import { HomeComponent } from './home/home.component';
+import { FormDirective } from './form.directive';
+import { DoctorDashboardComponent } from './doctor-dashboard/doctor-dashboard.component';
+import { BookappointmentComponent } from './bookappointment/bookappointment.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +21,18 @@ import { DoctorRegisterComponent } from './doctor-register/doctor-register.compo
     PatientLoginComponent,
     PatientRegisterComponent,
     DoctorLoginComponent,
-    DoctorRegisterComponent
+    DoctorRegisterComponent,
+    HomeComponent,
+    FormDirective,
+    DoctorDashboardComponent,
+    BookappointmentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [PatientserviceService],
   bootstrap: [AppComponent]

@@ -5,5 +5,8 @@ export class Doctor {
     timings:any;
     experience:any;
     fee:any;
-    password:any;  
+    password:any; 
+    address:any;
+    image:any
+
 }

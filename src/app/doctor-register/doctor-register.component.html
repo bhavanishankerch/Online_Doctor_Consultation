@@ -1,61 +1,70 @@
 <section class="vh-100">
     <div class="container-fluid h-custom mt-5">
- <form (ngSubmit)="onSubmit()" #userForm="ngForm">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        
-        <div class="col-md-9 col-lg-6 col-xl-5">
+      <form appForm [formGroup]="form" (ngSubmit)="onSubmit()" >
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          
+          <div class="col-md-9 col-lg-6 col-xl-5">
+          <div class="text-danger fw-bold">
+            Register Here
+          </div>
 
             <!-- Name input -->
-            <div class="form-outline mb-4">
-                <input type="text"  [(ngModel)]="doctor.name" name="name" class="form-control form-control-lg"
-                  placeholder="Enter your name" required #patient_name="ngModel"/>
+            <div class="form-outline mb-4 mt-4">
+                <input type="text"  [(ngModel)]="doctor.name" formControlName = "name" class="form-control form-control-lg"
+                  placeholder="Enter your name" >
                 <label class="form-label" >your name</label>
               </div>
       
               <!-- categeory -->
               <div class="form-outline mb-4">
-                <input type="text"  [(ngModel)]="doctor.categeory" name="categeory" required class="form-control form-control-lg"
-                  placeholder="Enter your categeory" #contact="ngModel"/>
+                <input type="text"  [(ngModel)]="doctor.categeory" formControlName = "categeory" required class="form-control form-control-lg"
+                  placeholder="Enter your categeory" >
                 <label class="form-label" >categeory</label>
               </div>
       
               <!-- Mobile input -->
               <div class="form-outline mb-4">
-                  <input type="text"  [(ngModel)]="doctor.mobile_number" name="mobile_number" required class="form-control form-control-lg"
-                    placeholder="Enter your mobile number" #contact="ngModel"/>
+                  <input type="text"  [(ngModel)]="doctor.mobile_number" formControlName = "mobile_number" required class="form-control form-control-lg"
+                    placeholder="Enter your mobile number" >
                   <label class="form-label" >your Mobile Number</label>
                 </div>
       
               <!-- timings input -->
               <div class="form-outline mb-4">
-                <input type="text"  [(ngModel)]="doctor.timings" name="timings" class="form-control form-control-lg"
-                  placeholder="Enter availabilty Timings" required #email_id="ngModel"/>
+                <input type="text"  [(ngModel)]="doctor.timings" formControlName = "timings" class="form-control form-control-lg"
+                  placeholder="Enter availabilty Timings" >
                 <label class="form-label">Timings</label>
               </div>
         </div>
 
 
-        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 mt-5">
 
             <!-- experience -->
-            <div class="form-outline mb-4">
-                <input type="text"  [(ngModel)]="doctor.experience" name="experience" class="form-control form-control-lg"
-                  placeholder="Enter experience in years" required #email_id="ngModel"/>
+            <div class="form-outline mb-4 mt-5">
+                <input type="text"  [(ngModel)]="doctor.experience" formControlName = "experience" class="form-control form-control-lg"
+                  placeholder="Enter experience in years">
                 <label class="form-label">Experience</label>
               </div>
 
               <!-- fee -->
             <div class="form-outline mb-4">
-                <input type="text"  [(ngModel)]="doctor.fee" name="timings" class="form-control form-control-lg"
-                  placeholder="Enter availabilty Timings" required #email_id="ngModel"/>
+                <input type="text"  [(ngModel)]="doctor.fee" formControlName = "fee" class="form-control form-control-lg"
+                  placeholder="Enter Fee" >
                 <label class="form-label">Fee</label>
               </div>
   
             <!-- Password input -->
             <div class="form-outline mb-3">
-              <input type="password"  [(ngModel)]="doctor.password" name="password" class="form-control form-control-lg"
-                placeholder="Enter password" required #password="ngModel"/>
+              <input type="password"  [(ngModel)]="doctor.password" formControlName = "password" class="form-control form-control-lg"
+                placeholder="Enter password" >
               <label class="form-label">Password</label>
+            </div>
+
+            <div class="form-outline mb-3">
+              <input type="text"  [(ngModel)]="doctor.address" formControlName = "address" class="form-control form-control-lg"
+                placeholder="Enter address" >
+              <label class="form-label">Address</label>
             </div>
             
             <!-- submit-->
@@ -69,14 +78,8 @@
     </div>
 </form>
 </div>
-
-    <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
-      <!-- Copyright -->
-      <div class="text-white mb-3 mb-md-0">
-        Copyright © 2020. All rights reserved.
-      </div>
-  
-    </div>
    
   </section>
+
+
 

@@ -8,43 +8,36 @@
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
 
           <div class="text-danger fw-bold">
-            Register Here
+            Book Appointment
          </div>
 
           <form appForm [formGroup]="form" (ngSubmit)="onSubmit()" >
 
             <!-- Name input -->
             <div class="form-outline mb-4 mt-4">
-              <input type="text"  [(ngModel)]="patient.patient_name" id="patient_name" class="form-control form-control-lg"
+              <input type="text"  [(ngModel)]="appointment.name" id="name" class="form-control form-control-lg"
                 placeholder="Enter your name" formControlName = "patient_name" required>
               <label class="form-label" >your name</label>
             </div>
 
             <!-- Mobile input -->
             <div class="form-outline mb-4">
-              <input type="text"  [(ngModel)]="patient.contact" id="contact" required class="form-control form-control-lg"
+              <input type="text"  [(ngModel)]="appointment.contact" id="contact" required class="form-control form-control-lg"
                 placeholder="Enter your mobile number" formControlName = "contact" required >
               <label class="form-label" >your Mobile Number</label>
             </div>
 
             <!-- Email input -->
             <div class="form-outline mb-4">
-              <input type="email"  [(ngModel)]="patient.email_id" id="email_id" class="form-control form-control-lg"
+              <input type="email"  [(ngModel)]="appointment.email"   id="emai" class="form-control form-control-lg"
                 placeholder="Enter a valid email address" formControlName = "email_id" required>
               <label class="form-label">Email address</label>
-            </div>
-  
-            <!-- Password input -->
-            <div class="form-outline mb-3">
-              <input type="password"  [(ngModel)]="patient.password" id="password" class="form-control form-control-lg"
-                placeholder="Enter password" formControlName = "password" required />
-              <label class="form-label">Password</label>
             </div>
             
             <!-- submit-->
             <div class="text-center text-lg-start mt-3 pt-2">
               <button type="submit" class="btn btn-primary btn-lg"
-              style="padding-left: 2.5rem; padding-right: 2.5rem;">SignUp</button>
+              style="padding-left: 2.5rem; padding-right: 2.5rem;">Book Appointment</button>
             </div>
           
   

@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Doctor } from '../doctor';
 import { DoctorserviceService } from '../doctorservice.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-doctor-register',
@@ -13,17 +15,26 @@ export class DoctorRegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  doctor: Doctor;
-
-  constructor(
-    private router: Router, 
-        private doctorservice: DoctorserviceService) {
+  model:any;
+  document: Document;
+  form:FormGroup;
+  doctor:Doctor;
+  
+  constructor(@Inject (DOCUMENT) document:Document, private router:Router,private formBuilder:FormBuilder,private doctorservice:DoctorserviceService) {
     this.doctor = new Doctor();
-  }
+    this.document=document; this.model=Doctor; this.form = this.formBuilder.group({
+    name:['',Validators.required],
+    categeory:['', Validators.required],
+    mobile_number:['',Validators.required],
+    timings:['', Validators.required],
+    experience:['',Validators.required],
+    fee:['', Validators.required],
+    password:['', Validators.required],
+    address:['',Validators.required]
+})}
 
-  onSubmit() {
+   onSubmit() {
     this.doctorservice.save(this.doctor).subscribe(result => this.gotoUserList());
-    this.doctorservice.save(this.doctor).subscribe(result => alert("Registered Successfully"));
   }
 
   gotoUserList() {

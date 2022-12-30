@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+<div class="nav">
+        
+        <img src="https://mdstudeo.com/wp-content/uploads/2021/03/november-mens-clothing-brand.png" alt="" class="logo">
+        
+        <div class="list" style="cursor:pointer">
+            <li><a>Home</a></li>
+            <li><a>About Us</a></li>
+            <li><a>Doctors</a></li>
+            <li><a routerLink="/patient-login">Log Out <img src="https://img.icons8.com/color-glass/96/logout-rounded.png" style="width: 30px;height: 30px;"alt=""></a></li>
+        </div>
+
+    </div>
+
+    <div class="image">
+       <img src="\assets\doctor-man-consulting-patient-while-filling-up-application-form-desk-hospital.jpg">
+       <div class="caption">
+          Making Health Care Better Together
+       </div>
+    </div>
+
+    <div class="container mt-5" style="margin-left: 5%; position: absolute;" id="doctors" >
+      <div class="row" >
+          <ng-container>
+        <div class="card" style="width:400px;" *ngFor="let doctor of list">
+        <div class="container d-flex">
+          <img class="card-img-left rounded-circle" src="{{doctor.image}}" alt="Card image" style="width:150px;box-shadow: 3px 5px 3px rgb(26, 106, 254);" height="150px">
+          <div class="card-body">
+            <h4 class="card-title ">{{doctor.name}}</h4>
+            <h6 class=" text-primary ">{{doctor.categeory}}</h6>
+            <h6 class=" text-primary ">Experience: {{doctor.experience}}</h6>
+            <h6 class=" text-primary">Fee: {{doctor.fee}} INR</h6>
+        </div>
+    </div>
+    <div class="container mt-3 d-flex justify-content-start">
+        <img src="\assets\icons8-location.gif" width="30px" alt="">
+        <h6>{{doctor.address}}</h6>
+    </div>
+    <div class="container mt-2 d-flex justify-content-center">
+        <p>Timings:   {{doctor.timings}}</p>
+    </div>
+    
+    <button type="button" routerLink="/app-bookappointment" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+      Book Appointment
+    </button>
+
+  </div>
+</ng-container>
+      
+    </div>
+  </div>
+  
+
+
+
+
