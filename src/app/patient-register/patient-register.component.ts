@@ -34,11 +34,9 @@ export class PatientRegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    this.patientservice.save(this.patient).subscribe(result => this.gotoUserList());
-  }
-
-  gotoUserList() {
-    this.router.navigate(['/patient-login']);
+    this.patientservice.save(this.patient).subscribe(result => {console.log(result), 
+      alert('Successfully Registered')});
+    this.router.navigate(['patient-login']);
   }
 
   }

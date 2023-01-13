@@ -7,18 +7,21 @@
         </div>
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
 
-          <form appForm [formGroup]="form" (ngSubmit)="onSubmit()">
+          <form class="form-group" (ngSubmit)="onSubmit()">
+
+            <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+            <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>
 
             <!-- Email input -->
             <div class="form-outline mb-4">
-              <input type="email" id="email_id" formControlName = "email_id" class="form-control form-control-lg"
-                placeholder="Enter a valid email address" required >
-              <label class="form-label" for="form3Example3">Email address</label>
+              <input type="text" id="name" name="username" [(ngModel)]="username" class="form-control form-control-lg"
+                placeholder="Enter username" required >
+              <label class="form-label" for="form3Example3">username</label>
             </div>
   
             <!-- Password input -->
             <div class="form-outline mb-3">
-              <input type="password" id="password" formControlName = "password" class="form-control form-control-lg"
+              <input type="password" id="password" name="password" [(ngModel)]="password" class="form-control form-control-lg"
                 placeholder="Enter password" required/>
               <label class="form-label" for="form3Example4">Password</label>
             </div>
@@ -36,7 +39,7 @@
             
             <div class="text-center text-lg-start mt-3 pt-2">
               
-              <button type="submit" class="btn btn-primary btn-lg"
+              <button type="submit"  class="btn btn-primary btn-lg"
                 style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
               <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a routerLink="/patient-register"
                 class="link-danger">Register</a></p>

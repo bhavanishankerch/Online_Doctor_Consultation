@@ -8,13 +8,10 @@ import { Appointment } from './appointment';
 })
 export class AppointmentService {
 
-  appointmenturl: string;
-
-  bookappointmenturl: string;
+  private appointmenturl: string;
 
   constructor(private http:HttpClient) {
     this.appointmenturl = "http://localhost:8080/appointment";
-    this.bookappointmenturl = "http://localhost:8080/bookappointment";
 
    }
 
@@ -22,8 +19,9 @@ export class AppointmentService {
     return this.http.get<Appointment[]>(this.appointmenturl);
 
    }
-   public saveData(_appointment:Appointment) {
-    return this.http.post<Appointment>(this.bookappointmenturl, Appointment);
+   public saveData(appointment: Appointment) {
+    console.log(appointment.name+"-"+appointment.email)
+    return this.http.post<Appointment>(this.appointmenturl, appointment);
 
    }
 }

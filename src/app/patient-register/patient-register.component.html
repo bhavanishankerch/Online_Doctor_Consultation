@@ -11,43 +11,51 @@
             Register Here
          </div>
 
-          <form appForm [formGroup]="form" (ngSubmit)="onSubmit()" >
+         <form (ngSubmit)="onSubmit()" #userForm="ngForm" class="mt-2">
+          <div class="form-group">
+            <label for="id">Name</label>
+            <input type="text" [(ngModel)]="patient.username" 
+              class="form-control form-control-lg" 
+              id="name" 
+              name="name" 
+              placeholder="Enter your name"
+              required #name="ngModel">
+          </div>
+          <div [hidden]="!name.pristine" class="alert alert-danger">Name is required</div>
 
-            <!-- Name input -->
-            <div class="form-outline mb-4 mt-4">
-              <input type="text"  [(ngModel)]="patient.patient_name" id="patient_name" class="form-control form-control-lg"
-                placeholder="Enter your name" formControlName = "patient_name" required>
-              <label class="form-label" >your name</label>
-            </div>
+          <div class="form-group">
+            <label for="name">Contact</label>
+            <input type="text" [(ngModel)]="patient.contact" 
+              class="form-control form-control-lg" 
+              id="name" 
+              name="name" 
+              placeholder="Enter your name"
+              required #contact="ngModel">
+          </div>
+          <div [hidden]="!contact.pristine" class="alert alert-danger">contact is required</div>
 
-            <!-- Mobile input -->
-            <div class="form-outline mb-4">
-              <input type="text"  [(ngModel)]="patient.contact" id="contact" required class="form-control form-control-lg"
-                placeholder="Enter your mobile number" formControlName = "contact" required >
-              <label class="form-label" >your Mobile Number</label>
-            </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" [(ngModel)]="patient.email_id" 
+              class="form-control form-control-lg" 
+              id="email" 
+              name="email" 
+              placeholder="Enter your email address"
+              required #email="ngModel">
+            <div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div></div>
 
-            <!-- Email input -->
-            <div class="form-outline mb-4">
-              <input type="email"  [(ngModel)]="patient.email_id" id="email_id" class="form-control form-control-lg"
-                placeholder="Enter a valid email address" formControlName = "email_id" required>
-              <label class="form-label">Email address</label>
-            </div>
-  
-            <!-- Password input -->
-            <div class="form-outline mb-3">
-              <input type="password"  [(ngModel)]="patient.password" id="password" class="form-control form-control-lg"
-                placeholder="Enter password" formControlName = "password" required />
-              <label class="form-label">Password</label>
-            </div>
-            
-            <!-- submit-->
-            <div class="text-center text-lg-start mt-3 pt-2">
-              <button type="submit" class="btn btn-primary btn-lg"
-              style="padding-left: 2.5rem; padding-right: 2.5rem;">SignUp</button>
-            </div>
-          
-  
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" [(ngModel)]="patient.password" 
+              class="form-control form-control-lg" 
+              id="password" 
+              name="password" 
+              placeholder="Enter your password"
+              required #password="ngModel">
+            <div [hidden]="!password.pristine" class="alert alert-danger">set password</div>
+          </div>
+          <button type="submit" [disabled]="!userForm.form.valid" 
+            class="btn btn-info">Sign Up</button>
         </form>
         </div>
       </div>

@@ -1,5 +1,5 @@
 export class Patient {
-    patient_name:any;
+    username:any;
     contact:any;
     email_id:any;
     password:any;
