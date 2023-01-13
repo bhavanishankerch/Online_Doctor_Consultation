@@ -8,20 +8,17 @@
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
 
           <form appForm [formGroup]="form" (ngSubmit)="onSubmit()">
-
-            <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
-            <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>
   
             <!-- Email input -->
             <div class="form-outline mb-4">
-              <input type="email" id="form1" name="username" [(ngModel)]="username" class="form-control form-control-lg"
+              <input type="email" id="form1" class="form-control form-control-lg"
                 placeholder="Enter user name" formControlName="email" >
               <label class="form-label" for="form3Example3">User Name</label>
             </div>
   
             <!-- Password input -->
             <div class="form-outline mb-3">
-              <input type="password" id="form2" name="username" [(ngModel)]="password" class="form-control form-control-lg" value="#563d7c"
+              <input type="password" id="form2" class="form-control form-control-lg" value="#563d7c"
                 placeholder="Enter password" formControlName="password">
               <label class="form-label" for="form3Example4">Password</label>
             </div>

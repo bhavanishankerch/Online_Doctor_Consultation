@@ -8,22 +8,16 @@
 </head>
 
 <body>
-  
 <div class="nav">
         
-        <img src="https://img.icons8.com/officel/512/caduceus.png" alt="" class="logo">
-
-        <div class="input-group" style="max-width: 30%;">
-          <input type="search" class="form-control rounded" [(ngModel)]="doctor.categeory" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-          <button type="submit" (click)="getCategeory()" class="btn btn-outline-primary">search</button>
-        </div>
+        <img src="https://mdstudeo.com/wp-content/uploads/2021/03/november-mens-clothing-brand.png" alt="" class="logo">
         
         <div class="list" style="cursor:pointer">
-            <li><a href="#home">Home</a></li>
+            <li><a>Home</a></li>
             <li><a>About Us</a></li>
-            <li><a href="#doctors">Doctors</a></li>
+            <li><a>Doctors</a></li>
             <li><a routerLink="/patient-login">Log Out <img src="https://img.icons8.com/color-glass/96/logout-rounded.png" style="width: 30px;height: 30px;"alt=""></a></li>
-          </div>
+        </div>
 
     </div>
 
@@ -34,7 +28,7 @@
        </div>
     </div>
 
-    <div id="doctors" class="container mt-5" style="margin-left: 5%; position: absolute;"  >
+    <div class="container mt-5" style="margin-left: 5%; position: absolute;" id="doctors" >
       <div class="row" >
           <ng-container>
         <div class="card" style="width:400px;" *ngFor="let doctor of list">
@@ -44,7 +38,7 @@
             <h4 class="card-title ">{{doctor.name}}</h4>
             <h6 class=" text-primary ">{{doctor.categeory}}</h6>
             <h6 class=" text-primary ">Experience: {{doctor.experience}}</h6>
-            <h6 class=" text-primary">Fee: {{doctor.fee | currency:"INR":"symbol"}} </h6>
+            <h6 class=" text-primary">Fee: {{doctor.fee}} INR</h6>
         </div>
     </div>
     <div class="container mt-3 d-flex justify-content-start">

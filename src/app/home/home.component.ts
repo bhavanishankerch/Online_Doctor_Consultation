@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Doctorclass } from '../doctorclass';
+import { Doctor } from '../doctor';
 import { DoctorserviceService } from '../doctorservice.service';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DOCUMENT } from '@angular/common';
+import { Appointment } from '../appointment';
+import { AppointmentService } from '../appointment.service';
 
 @Component({
   selector: 'app-home',
@@ -11,26 +14,26 @@ import { DoctorserviceService } from '../doctorservice.service';
 export class HomeComponent implements OnInit {
 
   public list:any;
-  doctors: Doctorclass[]=[];
+  doctors: Doctor[]=[];
   navigate:any;
-  doctor:Doctorclass;
+  doctor:Doctor;
   
 
 
   constructor(private doctorservice:DoctorserviceService) { 
-    this.doctor = new Doctorclass(); 
+    this.doctor = new Doctor(); 
   }
 
   ngOnInit(): void {
     this.doctorservice.findAll().subscribe(res=>{this.list=res;})
   }
 
-  categeorydata(doctor:Doctorclass){
+  categeorydata(doctor:Doctor){
     console.log('categeorydata',doctor.categeory);
     this.doctorservice.getAll(doctor).subscribe(data => {this.doctors=data;});
   }
 
-  getCategeory(){
+  getCategory(){
     console.log('getCategeory' ,this.doctor.categeory);
    this.categeorydata(this.doctor);
   }

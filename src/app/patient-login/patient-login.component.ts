@@ -2,9 +2,8 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { Patient } from '../patient';
 import { PatientserviceService } from '../patientservice.service';
 import { DOCUMENT } from '@angular/common';
-import { Router, ActivatedRoute } from '@angular/router';
-import { AuthenticationService } from '../authentication.service';
-
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -14,38 +13,34 @@ import { AuthenticationService } from '../authentication.service';
 })
 export class PatientLoginComponent implements OnInit {
 
-  username: any;
-  password : any;
-  errorMessage = 'Invalid Credentials';
-  successMessage: any;
-  invalidLogin = false;
-  loginSuccess = false;
-  patient: Patient;
 
 
-  ngOnInit(): void {}
+
+  ngOnInit(): void {
+    this.patientservice.findAll().subscribe(data => {
+      this.model = data;
+    })
+  }
+
+  model:any;
+  document: Document;
+  form:FormGroup;
+
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private authenticationService: AuthenticationService,) {
-      this.patient = new Patient();
-
-  }
+  private patientservice:PatientserviceService, private router:Router,private formBuilder:FormBuilder) {this.document=document; this.model=Patient; this.form = this.formBuilder.group({
+        email_id:['',Validators.required],
+        password:['', Validators.required],
+  })}
   
   onSubmit(){
-    
-    this.authenticationService.authenticationService(this.username, this.password).subscribe((result)=> {
-      this.invalidLogin = false;
-      this.loginSuccess = true;
-      this.successMessage = 'Login Successful.';
-      this.router.navigate(['/app-home']);
-    }, 
-    () => {
-      this.invalidLogin = true;
-      this.loginSuccess = false;
-    }
-    );
+  
+
+  if((<HTMLInputElement>document.getElementById('email_id')).value === this.model.email_id   || (<HTMLInputElement>document.getElementById('password')).value ===  this.model.password  ){
+    this.router.navigate(['/app-home'])
+  }else{
+    alert("Enter Valid  Data");
+  }
   }
 
 }

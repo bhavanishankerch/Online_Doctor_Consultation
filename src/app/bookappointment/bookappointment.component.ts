@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class BookappointmentComponent implements OnInit {
 
+  public list:any;
   appointment: Appointment;
   form:FormGroup;
 
@@ -21,11 +22,11 @@ export class BookappointmentComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onClick(){
-    this.appointmentservice.saveData(this.appointment).subscribe(result => {
-      console.log(result),alert('Booked Successfully');
-      this.router.navigate(['app-home'])
-    });
+  onSubmit(){
+    this.appointmentservice.saveData(this.appointment).subscribe(res=>(console.log(res)));
+    this.router.navigate(['home']);
   }
+
+ 
 
 }
